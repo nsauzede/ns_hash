@@ -16,6 +16,6 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install --quiet -y make gcc python3 bash
-          git clone https://github.com/nsauzede/vade.git
+          git clone https://github.com/nsauzede/ns_vade.git
       - name: Build and test
-        run: ./vade/vade clean test
+        run: ns_vade/bin/vade clean test

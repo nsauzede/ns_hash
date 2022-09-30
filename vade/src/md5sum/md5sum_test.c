@@ -29,7 +29,7 @@ TEST_F(md5sum, Md5sum) {
     EXPECT_TRUE(res == 0);
     EXPECT_STREQ(buf, ref_empty);
     memset(buf, 0, sizeof(buf));
-    res = exec_command_and_get_output(buf, sizeof(buf), "echo -n '' | ./bin/md5sum.exe | cut -f 1 -d ' ' -z");
+    res = exec_command_and_get_output(buf, sizeof(buf), "echo -n '' | vade/bin/md5sum.exe | cut -f 1 -d ' ' -z");
     EXPECT_TRUE(res == 0);
     EXPECT_STREQ(buf, ref_empty);
 }
