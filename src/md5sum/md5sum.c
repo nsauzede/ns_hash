@@ -1,5 +1,5 @@
 /*
- * md5sum - naive reimplementation of classic tool (using custom md5 lib)
+ * md5sum - naive/incomplete reimplementation of classic tool (using custom md5 lib)
  * Copyright (C) 2022 Nicolas Sauzede (nsauzede@laposte.net)
  * SPDX-License-Identifier: GPL-3.0-or-later
  */

@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static uint32_t rotl(uint32_t value, uint32_t shift) {
     if ((shift &= sizeof(value)*8 - 1) == 0)
@@ -58,7 +59,9 @@ int md5(char digest[16], const char *data, size_t size) {
     message[size] = 0x80;
     uint64_t orig_bit_length = size * 8;
     memcpy(message + padded_length - 8, &orig_bit_length, 8);
+    int nblocks = 0;
     for (uint32_t c = 0; c < padded_length / 64; c++) {
+        nblocks++;
         uint32_t *M = (uint32_t *)&message[c * 64];
         uint32_t A = a0;
         uint32_t B = b0;
@@ -75,7 +78,7 @@ int md5(char digest[16], const char *data, size_t size) {
             } else if ((i >= 32) && (i <= 47)) {
                 F = B ^ C ^ D;
                 g = (3 * i + 5) % 16;
-            } else if ((i >= 48) && (i <= 63)) {
+            } else /*if ((i >= 48) && (i <= 63))*/ {
                 F = C ^ (B | ~D);
                 g = (7 * i) % 16;
             }
@@ -90,6 +93,7 @@ int md5(char digest[16], const char *data, size_t size) {
         c0 += C;
         d0 += D;
     }
+    fprintf(stderr, "Computed %d blocks\n", nblocks);
 
     memcpy(&digest[0], &a0, 4);
     memcpy(&digest[4], &b0, 4);
