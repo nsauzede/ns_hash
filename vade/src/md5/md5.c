@@ -90,6 +90,7 @@ int md5(char digest[16], const char *data, size_t size) {
         c0 += C;
         d0 += D;
     }
+    free(message);
 
     memcpy(&digest[0], &a0, 4);
     memcpy(&digest[4], &b0, 4);
