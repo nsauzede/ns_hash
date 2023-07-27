@@ -18,8 +18,7 @@ $ git clone https://github.com/nsauzede/ns_vade
 ## Run build/test
 ```
 $ ns_vade/bin/vade clean test
-    RM  vade/pkg
-    RM  vade/bin
+    RM  vade/target
     CC  md5.o
     AR  md5.a
     AR  libmd5.a
