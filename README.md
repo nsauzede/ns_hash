@@ -54,5 +54,5 @@ $ ns_vade/bin/vade clean test
 [  PASSED  ] 1 tests.
 ```
 
-[WorkflowBadge]: https://github.com/nsauzede/ns_hash/workflows/vade/badge.svg
+[WorkflowBadge]: https://github.com/nsauzede/ns_hash/actions/workflows/vade.yml/badge.svg
 [WorkflowUrl]: https://github.com/nsauzede/ns_hash/commits/main
